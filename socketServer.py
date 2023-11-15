@@ -22,6 +22,11 @@ aruments passed in socket() are constants used to specify the address family and
 AF_INET is the Internet address family for IPv4. 
 SOCK_STREAM is the socket type for TCP, the protocol that will be used to transport messages in the network.
 values passed to .bind depend on the address family of the socket. 
-In this case, were using ipv4 so it expects to records, a host and a port.
+In this case, were using ipv4 so it expects to records, a host(a hostname, IP address, or empty string) and a port(the TCP port number to accept connections on from clients).
+.listen() enables a server to accept.
+.accept() method blocks execution and waits for an incoming connection.
+After .accept() provides the client socket object conn, an infinite while loop is used to loop over blocking calls to conn.recv().
+This reads whatever data the client sends and echoes it back using conn.sendall().
+If conn.recv() returns an empty bytes object, b'', that signals that the client closed the connection and the loop is terminated. 
 
 """
