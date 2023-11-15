@@ -3,7 +3,7 @@ import socket
 HOST = "127.0.0.1"  # Standard loopback interface address (localhost)
 PORT = 65432  # Port to listen on
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: 
     s.bind((HOST, PORT))
     s.listen()
     conn, addr = s.accept()
@@ -14,3 +14,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if not data:
                 break
             conn.sendall(data)
+
+"""
+with- used to wrap the execution of a block with methods defined by a context manager 
+socket() - returns a socket object whose methods implement the various socket system calls
+
+"""
